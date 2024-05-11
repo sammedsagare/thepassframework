@@ -14,7 +14,10 @@ export default function Navbar() {
   return (
     <>
       <nav className="flex justify-between items-center pt-5">
-        <h1 className="text-2xl font-bold">tpf</h1>
+        <Link href="/">
+          <h1 className="text-2xl font-bold">tpf</h1>
+        </Link>
+
         <div className="flex space-x-5 md:text-xl items-center">
           <div className="hidden md:flex md:gap-5">
             <Link href="/">
@@ -63,7 +66,7 @@ export default function Navbar() {
             </button>
             <p className="absolute top-0 left-3.5 mt-8 ml-5">Navigation</p>
             {/* Links */}
-            <div className="flex flex-col gap-3 text-4xl font-bold">
+            <div className="flex flex-col gap-7 text-4xl font-bold">
               <div onClick={toggleMenu}>
                 <Link href="/">Home</Link>
               </div>

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // Define an array of possible attack types
 const attackTypes = ["DDoS", "DoS"];
@@ -74,6 +74,16 @@ const Page = () => {
   const [output, setOutput] = useState<string | number>("");
   const [fileMessage, setFileMessage] = useState("");
 
+  useEffect(() => {
+    let timer: NodeJS.Timeout;
+    if (fileMessage) {
+      timer = setTimeout(() => {
+        setFileMessage("");
+      }, 7000); // Set the timeout to 7 seconds
+    }
+    return () => clearTimeout(timer); // Clear the timer on component unmount or fileMessage change
+  }, [fileMessage]);
+
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files?.length) {
       setFileMessage("File uploaded successfully");
@@ -102,71 +112,77 @@ const Page = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
-      <div className="text-3xl font-bold">
+    <div className="flex flex-col md:flex-row md:justify-between items-center h-screen">
+      <div className="text-2xl md:text-3xl font-bold mt-44 md:mt-0">
         <h1>Binary Grey Wolf Optimization Algorithm</h1>
       </div>
       <form
-        className="bg-black p-8 rounded-3xl grid grid-cols-2 gap-4 mt-3"
+        className="bg-white border border-black shadow-lg p-8 rounded-3xl grid grid-cols-2 grid-rows-5 gap-4 mt-5"
         onSubmit={handleSubmit}
       >
         <input
-          id="durInput"
-          className="p-2 rounded bg-white text-black"
+          className="p-2 rounded bg-white border border-black"
           type="text"
           placeholder="dur"
+          id="durInput"
         />
         <input
-          id="maxInput"
-          className="p-2 rounded bg-white text-black"
+          className="p-2 rounded bg-white border border-black"
           type="text"
           placeholder="max"
+          id="maxInput"
         />
         <input
-          id="pktsInput"
-          className="p-2 rounded bg-white text-black"
+          className="p-2 rounded bg-white border border-black"
           type="text"
           placeholder="pkts"
+          id="pktsInput"
         />
         <input
-          id="srateInput"
-          className="p-2 rounded bg-white text-black"
+          className="p-2 rounded bg-white border border-black"
           type="text"
           placeholder="srate"
+          id="srateInput"
         />
         <input
-          id="spktsInput"
-          className="p-2 rounded bg-white text-black"
+          className="p-2 rounded bg-white border border-black"
           type="text"
           placeholder="spkts"
+          id="spktsInput"
         />
         <input
-          id="TnP_Per_DportInput"
-          className="p-2 rounded bg-white text-black"
+          className="p-2 rounded bg-white border border-black"
           type="text"
           placeholder="TnP_Per_Dport"
+          id="TnP_Per_DportInput"
         />
         <input
           id="fileInput"
-          className="p-2 rounded bg-white text-black"
+          className="p-2 rounded bg-white border border-black"
           type="file"
           accept=".csv"
           onChange={handleFileChange}
         />
-        <div className="col-span-3 text-center">
+
+        <div className="col-span-2 text-center">
           <button
-            className="bg-white text-black font-bold py-3 px-4 rounded"
+            className="bg-white text-black font-bold py-3 px-4 border border-black rounded"
             type="submit"
+            id="calculateBtn"
           >
             Calculate
           </button>
         </div>
       </form>
 
-      {fileMessage && <div className="mt-2 text-green-500">{fileMessage}</div>}
+      {fileMessage && (
+        <div className="absolute bottom-16 right-[26%] text-green-500">
+          {fileMessage}
+        </div>
+      )}
 
       {output && (
-        <div className="mt-5 bg-zinc-900 p-5 rounded-md">
+        <div className="absolute bottom-8 right-[22%] bg-white shadow-xl p-5 rounded-md">
           <p className="font-bold text-red-500">{output}</p>
         </div>
       )}
