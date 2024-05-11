@@ -61,7 +61,7 @@ export default function page() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:justify-between justify-center items-center h-[80vh]">
+      <div className="flex flex-col md:flex-row md:justify-between justify-center items-center h-screen">
         {" "}
         <div>
           <h1 className="text-[32px] md:text-[80px] font-bold mb-2">
@@ -87,7 +87,7 @@ export default function page() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:justify-between justify-center items-center h-[80vh]">
+      <div className="flex flex-col md:flex-row md:justify-between justify-center items-center h-screen">
         {" "}
         <div>
           <h1 className="text-[32px] md:text-[80px] font-bold mb-2">
@@ -109,7 +109,7 @@ export default function page() {
           </p>
         </div>
       </div>
-      <div className="flex flex-col md:flex-row md:justify-between justify-center items-center md:gap-60 h-[80vh]">
+      <div className="flex flex-col md:flex-row md:justify-between justify-center items-center md:gap-60 h-screen">
         <div>
           <h1 className="text-[32px] md:text-[80px] font-bold mb-2">
             Algorithms Used

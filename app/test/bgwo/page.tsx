@@ -176,7 +176,7 @@ const Page = () => {
       </form>
 
       {fileMessage && (
-        <div className="absolute bottom-16 right-[26%] text-green-500">
+        <div className="absolute bottom-16 right-[26%] font-bold text-green-500">
           {fileMessage}
         </div>
       )}
