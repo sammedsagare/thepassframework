@@ -32,7 +32,7 @@ export default function Landing() {
           </div>
         </div>
       </div>
-      <div className="mt-12">
+      {/* <div className="mt-12">
         <div className="flex justify-start items-center mb-5">
           <h2 className="text-[32px] md:text-[80px] font-bold mb-2">About</h2>
         </div>
@@ -55,7 +55,7 @@ export default function Landing() {
             </h1>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
